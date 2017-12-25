@@ -18,7 +18,7 @@
 
 PKG_NAME="fftw"
 PKG_VERSION="3.3.7"
-PKG_REV="114"
+PKG_REV="100"
 PKG_ARCH="any"
 PKG_ADDON_PROJECTS="Generic RPi RPi2 imx6 WeTek_Hub WeTek_Play_2 Odroid_C2"
 PKG_LICENSE="Proprietary"
