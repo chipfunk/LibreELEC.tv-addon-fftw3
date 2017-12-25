@@ -39,23 +39,8 @@ PKG_IS_ADDON="yes"
 PKG_ADDON_NAME="FFTW"
 PKG_ADDON_TYPE="xbmc.service.library"
 
-# configure_target() {
-#   ./configure $PKG_CONFIGURE_OPTS_TARGET
-#   make
-#   
-#   ./configure --enable-double-long $PKG_CONFIGURE_OPTS_TARGET
-#   make
-# }
-
-# make_target() {
-#   ./configure --enable-float $PKG_CONFIGURE_OPTS_TARGET
-#   make
-#   
-#   ./configure --enable-double-long $PKG_CONFIGURE_OPTS_TARGET
-#   make
-# }
-
 addon() {
   mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/lib/
   cp -RP $(get_build_dir fftw)/.install_pkg/* $ADDON_BUILD/$PKG_ADDON_ID/
 }
+
