@@ -16,31 +16,28 @@
 #  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="fftw"
-PKG_VERSION="3.3.7"
+PKG_NAME="fftw3"
+PKG_VERSION="3.3.10"
 PKG_REV="100"
 PKG_ARCH="any"
-PKG_ADDON_PROJECTS="Generic RPi RPi2 imx6 WeTek_Hub WeTek_Play_2 Odroid_C2"
 PKG_LICENSE="Proprietary"
 PKG_SITE="http://www.fftw.org"
-PKG_URL="http://www.fftw.org/$PKG_NAME-$PKG_VERSION.tar.gz"
-PKG_SOURCE_DIR="$PKG_NAME-$PKG_VERSION"
-PKG_DEPENDS_TARGET="toolchain"
+PKG_URL="http://www.fftw.org/fftw-${PKG_VERSION}.tar.gz"
+PKG_SHA256_CHECKSUM="56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
+# PKG_SOURCE_DIR="${PKG_NAME}-${PKG_VERSION}"
+PKG_DEPENDS_TARGET="glibc"
 PKG_SECTION="service/system"
-PKG_SHORTDESC="FFTW Discrete Fourier Transform library"
+PKG_SHORTDESC="FFTW Discrete Fourier Transform library - double precision"
 PKG_LONGDESC="FFTW is a free collection of fast C routines for computing the Discrete Fourier Transform in one or more dimensions."
+PKG_TOOLCHAIN="configure" # or one of auto, meson, cmake, cmake-make, configure, make, ninja, autotools, manual
 
-PKG_AUTORECONF="no"
-PKG_CONFIGURE_SCRIPT="configure"
-PKG_USE_CMAKE="yes"
-PKG_CONFIGURE_OPTS_TARGET="--enable-single-precision --disable-fortran"
+PKG_CONFIGURE_OPTS_TARGET="--disable-fortran"
 
 PKG_IS_ADDON="yes"
-PKG_ADDON_NAME="FFTW"
+PKG_ADDON_NAME="fftw3"
 PKG_ADDON_TYPE="xbmc.service.library"
 
 addon() {
-  mkdir -p $ADDON_BUILD/$PKG_ADDON_ID/lib/
-  cp -RP $(get_build_dir fftw)/.install_pkg/* $ADDON_BUILD/$PKG_ADDON_ID/
+  mkdir -p ${ADDON_BUILD}/${PKG_ADDON_ID}/usr/lib
+  cp -r ${PKG_INSTALL}/usr/lib/libfftw3* ${ADDON_BUILD}/${PKG_ADDON_ID}/usr/lib
 }
-
