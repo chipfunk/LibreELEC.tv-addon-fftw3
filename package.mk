@@ -18,6 +18,10 @@ PKG_TOOLCHAIN="configure" # or one of auto, meson, cmake, cmake-make, configure,
 
 PKG_CONFIGURE_OPTS_TARGET="--disable-fortran"
 
+PKG_LIBNAME="libfftw3.so"
+PKG_LIBPATH=".libs/${PKG_LIBNAME}"
+PKG_LIBVAR="FFTW3_LIB"
+
 PKG_IS_ADDON="yes"
 PKG_ADDON_NAME="${PKG_NAME}"
 PKG_ADDON_TYPE="xbmc.service"
