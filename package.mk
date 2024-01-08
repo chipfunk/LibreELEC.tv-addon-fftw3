@@ -11,7 +11,7 @@ PKG_URL="http://www.fftw.org/fftw-${PKG_VERSION}.tar.gz"
 PKG_SHA256_CHECKSUM="56c932549852cddcfafdab3820b0200c7742675be92179e59e6215b340e26467"
 PKG_MAINTAINER="chipfunk" # Full name or forum/GitHub nickname, if you want to be identified as the addon maintainer
 PKG_DEPENDS_TARGET="glibc"
-PKG_SECTION="service/system"
+PKG_SECTION=""
 PKG_SHORTDESC="FFTW Discrete Fourier Transform library - double precision"
 PKG_LONGDESC="FFTW is a free collection of fast C routines for computing the Discrete Fourier Transform in one or more dimensions."
 PKG_TOOLCHAIN="configure" # or one of auto, meson, cmake, cmake-make, configure, make, ninja, autotools, manual
@@ -20,9 +20,12 @@ PKG_CONFIGURE_OPTS_TARGET="--disable-fortran"
 
 PKG_IS_ADDON="yes"
 PKG_ADDON_NAME="${PKG_NAME}"
-PKG_ADDON_TYPE="xbmc.service"
+PKG_ADDON_TYPE="xbmc.service.library"
+PKG_ADDON_VERSION="0.1.0";
 
 addon() {
-  mkdir -p ${ADDON_BUILD}/${PKG_ADDON_ID}
-  cp ${PKG_INSTALL}/usr/lib/libfftw3* ${ADDON_BUILD}/${PKG_ADDON_ID}
+  mkdir -p ${ADDON_BUILD}/${PKG_ADDON_ID}/lib
+  cp ${PKG_INSTALL}/usr/lib/libfftw3* ${ADDON_BUILD}/${PKG_ADDON_ID}/lib
+
+  chmod +x ${ADDON_BUILD}/${PKG_ADDON_ID}/lib/*
 }
