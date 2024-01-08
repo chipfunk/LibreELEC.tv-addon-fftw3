@@ -21,7 +21,7 @@ PKG_CONFIGURE_OPTS_TARGET="--disable-fortran"
 PKG_IS_ADDON="yes"
 PKG_ADDON_NAME="${PKG_NAME}"
 PKG_ADDON_TYPE="xbmc.service.library"
-PKG_ADDON_VERSION="0.1.0";
+PKG_ADDON_VERSION="1.0.0";
 
 addon() {
   mkdir -p ${ADDON_BUILD}/${PKG_ADDON_ID}/lib
